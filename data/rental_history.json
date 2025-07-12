@@ -1,0 +1,26 @@
+[
+    {
+        "username": "GEETNATU",
+        "car name": "Camry",
+        "car brand": "Toyota",
+        "car no": "MP01AB1234",
+        "rental start": "2025-07-11",
+        "rental end": "2025-07-12",
+        "duration": 2,
+        "returned": true,
+        "total_amount": 5000,
+        "car_image": "https://global.toyota/pages/news/images/2017/07/10/1330/cmrh1707_04_s.jpg"
+    },
+    {
+        "username": "shivam",
+        "car name": "Thar",
+        "car brand": "Mahindra",
+        "car no": "MP06KL1234",
+        "rental start": "2025-07-11",
+        "rental end": "2025-07-11",
+        "duration": 1,
+        "returned": true,
+        "total_amount": 3200,
+        "car_image": "https://via.placeholder.com/300x200?text=Car5"
+    }
+]
