@@ -5,9 +5,8 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 from screens.sessionstate_folder.session_state import *
 from utils.billing import billing_page_function
-# from filehandling.rentals_io import save_rentals,delete_rentals
 
-#here I have rate,duration,car nae,car brand, fuel type and car tye in session state
+#here I have rate,duration,car name,car brand, fuel type and car tye in session state
 
 remove_header_footer = """  
     <style>
