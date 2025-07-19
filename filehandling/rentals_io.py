@@ -1,7 +1,7 @@
 import json
 
 
-file="D:/car_rental_system/data/rental_history.json"
+file="D:/PROJECT/CARVIO_v1/data/rental_history.json"
 
 def load_all_rentals():
     with open(file, "r") as f:
@@ -11,12 +11,13 @@ def save_rentals(rentals):
     with open(file, "w") as f:
         json.dump(rentals,f,indent=4)
 
-def add_rentals(username,car_name,car_brand,car_no,start_date,
+def add_rentals(id,username,car_name,car_brand,car_no,start_date,
                 end_date,duration,returned,total_amount,
                 car_image):
     all_rentals=load_all_rentals()
     
     new_rental={
+        "rental_id": id,
         "username": username,
         "car name": car_name,
         "car brand": car_brand,
@@ -43,10 +44,10 @@ def show_user_past_rentals(username_text):
                    and rental["returned"]==True]
      return past_rentals
 
-def mark_returned(username, car_no,returned):
+def mark_returned(username, car_no,id, returned):
     all_rentals=load_all_rentals()
     for r in all_rentals:
-        if(r["username"]==username and r["car no"]== car_no):
+        if(r["username"]==username and r["car no"]== car_no and r["rental_id"]==id):
                 r["returned"]=returned
                 break
     save_rentals(all_rentals)

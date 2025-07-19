@@ -5,7 +5,7 @@ from filehandling.user_io import *
 from screens.sessionstate_folder.session_state import for_signup, already_logged_in
 
 
-def login(username, password):
+def validate_login(username, password):
     
     if not username or not password:
         st.error("Username and password cannot be the empty")
@@ -38,7 +38,7 @@ def login_page_func():
             </style>
             '''
             st.markdown(page_bg_img, unsafe_allow_html=True)
-    set_background("D:/car_rental_system/static/image/bgimage_final.png")
+    set_background("D:/PROJECT/CARVIO_v1/static/image/bgimage_final.png")
    
     st.markdown("""
                 <style>
@@ -54,7 +54,7 @@ def login_page_func():
     password_text=st.text_input("Enter the password:")
     login_button=st.button("Login")
     if login_button:
-        login1=login(username_text,password_text)    #function called from above
+        login1=validate_login(username_text,password_text)    #function called from above
         if login1:
             st.success("Logged in Successfully")
             already_logged_in(username_text)         #home page session state

@@ -1,6 +1,8 @@
 # session_state.py - auto generated file
 import streamlit as st
+from filehandling.rentals_io import load_all_rentals
 
+all_rentals=load_all_rentals()
 
 if "page" not in st.session_state:
     st.session_state.page="outer_dashboard"
@@ -58,6 +60,12 @@ if "car_returned" not in st.session_state:
 
 if "total_amount" not in st.session_state:
     st.session_state.total_amount=0
+
+if "rental_id" not in st.session_state:
+    if len(all_rentals) == 0:
+        st.session_state.rental_id = 1
+    else:
+        st.session_state.rental_id = max(rental["rental_id"] for rental in all_rentals) + 1
 
 
 def for_signup():

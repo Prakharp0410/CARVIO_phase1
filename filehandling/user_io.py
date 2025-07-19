@@ -1,7 +1,7 @@
 import os
 import json
 
-file="D:\car_rental_system\\data\\users.json"
+file="D:/PROJECT/CARVIO_v1/data/users.json"
 
 def load_users():
     if not os.path.exists(file):

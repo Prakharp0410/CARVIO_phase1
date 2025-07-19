@@ -6,7 +6,7 @@ from screens.sessionstate_folder.session_state import for_login
 import base64
 
 
-def signup(username,password,fname,lname,email,phone_number):
+def validate_signup(username,password,fname,lname,email,phone_number):
     if not password or not username:       
         st.error("username and password cannot be empty")
         return False
@@ -84,7 +84,7 @@ def signup_page_func():
             </style>
             '''
             st.markdown(page_bg_img, unsafe_allow_html=True)
-    set_background("D:/car_rental_system/static/image/bgimage_final.png")
+    set_background("D:/PROJECT/CARVIO_v1/static/image/bgimage_final.png")
   
     st.markdown("""   
                 <style>
@@ -112,7 +112,7 @@ def signup_page_func():
     phone_number=st.text_input("Enter your phone:")
     signup_button=st.button("Sign up")
     if signup_button:
-     signup1=signup(username_text,password_text,        #signup function called from above
+     signup1=validate_signup(username_text,password_text,        #signup function called from above
                     fname_text,lname_text,
                     email_text,phone_number)
      if signup1:

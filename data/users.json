@@ -1,23 +1,9 @@
 {
-    "Prakk": {
-        "fname": "Prakhar",
-        "lname": "Pathak",
-        "email": "ppp@gmail.com",
-        "password": "Pp@123",
-        "phone_number": "1234567890"
-    },
     "GEETNATU": {
         "fname": "geet",
         "lname": "natu",
-        "email": "geet@mail.om",
-        "password": "Abc@123",
-        "phone_number": "9691487727"
-    },
-    "shivam": {
-        "fname": "Shivam",
-        "lname": "B",
-        "email": "shivam@gmail.com",
-        "password": "Shiv@123",
-        "phone_number": "9999999999"
+        "email": "gggn@gmail.com",
+        "password": "Geet@123",
+        "phone_number": "1234567890"
     }
 }

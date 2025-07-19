@@ -1,6 +1,6 @@
 import json
 
-file="D:/car_rental_system/data/reviews.json"
+file="D:/PROJECT/CARVIO_v1/data/reviews.json"
 
 def load_reviews():
     try:

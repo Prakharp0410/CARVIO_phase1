@@ -25,18 +25,20 @@ remove_header_footer = """
     </style>
 """
 
-my_rentals_title="""<h1 style='color:white; font-size:80px;
+my_rentals_title="""<h1 style='color:white; font-size:70px;
 display:flex;
-justify-content:center;'> MY RENTALS </h1>"""
+justify-content:center;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+margin-bottom: 25px;'>  MY RENTALS </h1>"""
 
 max_width="""<style>
-.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.elbt1zu4 {
+.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 {
     max-width: 100%;
 }</style>"""
 
 background_css="""<style>
-section.stMain.st-emotion-cache-z4kicb.elbt1zu1 {
-        background-image:url(https://mobiag.com/wp-content/uploads/2019/06/car-rental-fleet.jpg);
+section.stMain.st-emotion-cache-4rsbii.e4man111 {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://mobiag.com/wp-content/uploads/2019/06/car-rental-fleet.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -46,18 +48,27 @@ section.stMain.st-emotion-cache-z4kicb.elbt1zu1 {
 </style>"""
 
 button_css="""<style>
-button.st-emotion-cache-1rwb540.e1e4lema2 {
-    background: green;
+button.st-emotion-cache-1rwb540.el4r43z2{
+    background: #2E86AB;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: bold;
+    transition: all 0.1s ease;
 }
-button.st-emotion-cache-1rwb540.e1e4lema2:hover {
-    background: red;
-    color:white;
+button.st-emotion-cache-1rwb540.el4r43z2:hover {
+    background: #ff9800;
+    color: white;
+    border: 2px solid #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
 }
 </style>"""
+
 def my_rentals_page_function():
     st.markdown(remove_header_footer,unsafe_allow_html=True)
     
-    back_dashboard_button=st.button("Back to dashboard")
+    back_dashboard_button=st.button("← Back to Dashboard")
     if back_dashboard_button:                           #back to dashboard 
         st.session_state.page="home_page"
         st.session_state.current_page="none"
@@ -71,83 +82,103 @@ def my_rentals_page_function():
     current_rentals=show_user_current_rentals(st.session_state.username)
     past_rentals=show_user_past_rentals(st.session_state.username)
 
-    current_rental_button=st.button("Current/Ongoing Rentals")
-    past_rentals_button=st.button("Past Rentals")
+    current_rental_button=st.button(" Current/Ongoing Rentals")
+    past_rentals_button=st.button(" Past Rentals")
 
     if current_rental_button:
-        st.markdown("<h1 style='color:white'>CURRENT RENTALS</h1>", unsafe_allow_html=True)
+        st.markdown("""<div style="background: rgba(76, 175, 80, 0.2); border-radius: 10px; 
+                    padding: 15px; margin: 20px 0; border-left: 4px solid #4CAF50; text-align: center;">
+                    <h1 style='color:white; margin:0;'> CURRENT RENTALS</h1></div>""", unsafe_allow_html=True)
         if len(current_rentals) == 0:
-            st.markdown("<h2 style='color:white'>No current rentals found.</h2>",
+            st.markdown("""<div style="background: rgba(255, 152, 0, 0.1); border-radius: 10px; 
+                        padding: 20px; margin: 20px 0; border: 2px solid #ff9800; text-align: center;">
+                        <h2 style='color:white; margin:0;'> No current rentals found.</h2></div>""",
                         unsafe_allow_html=True)
         else:    
             for user in current_rentals:
                 column1,column2,image=st.columns([2,2,1])
                 with column1:
-                    st.markdown(f"#### Car name:{user["car brand"]}  {user["car name"]}")
-                    st.markdown(f"#### Car no:{user["car no"]}")
-                    st.markdown(f"#### Amount : {user["total_amount"]}")
+                    st.markdown(f"####  Car name: {user['car brand']} {user['car name']}")
+                    st.markdown(f"####  Car no: {user['car no']}")
+                    st.markdown(f"####  Amount: ₹{user['total_amount']:,}")
                 with column2:
-                    st.markdown(f"#### Start Date:{user["rental start"]}")
-                    st.markdown(f"#### End Date:{user["rental end"]}")
-                    st.markdown(f"#### Duration:{user["duration"]} days")
+                    st.markdown(f"####  Start Date: {user['rental start']}")
+                    st.markdown(f"####  End Date: {user['rental end']}")
+                    st.markdown(f"#### Duration: {user['duration']} days")
                 with image:
                     st.markdown( f"""
                             <div style="width:200px; height:150px;
                                     overflow:hidden; display:inline-block; 
-                                    align-items:center; justify-content:center; 
-                                    background:#eee; border-radius:8px; margin-bottom:8px;">
-                                    <img src="{user["car_image"]}" style="width:100%; height:100%; object-fit:cover;">
+                                    alige1msl4mp2n-items:center; justify-content:center; 
+                                    background:rgba(255,255,255,0.1); border-radius:10px; 
+                                    margin-bottom:8px; border:2px solid rgba(255,255,255,0.2);">
+                                    <img src="{user['car_image']}" style="width:100%; height:100%; 
+                                    object-fit:cover; border-radius:8px; justify-content:center;">
                             </div>
                             """,
                             unsafe_allow_html=True)
             
                 st.markdown("""<style>
-                    .stHorizontalBlock.st-emotion-cache-ajtf3x.eertqu03 {
+                    .stHorizontalBlock.st-emotion-cache-rra9ig.e1msl4mp2 {
                                             border-style: solid;
+                                            border-color: rgba(255, 255, 255, 0.2);
+                                            border-width: 1px;
+                                            border-radius: 8px;
                                             }
-                    .stColumn.st-emotion-cache-1becg64.eertqu01 {
+                    .stColumn.st-emotion-cache-5ux0lt.e1msl4mp1 {
                         border-style: solid;
                         border-bottom: none;
                         border-left: none;
                         border-top: none;
+                        border-color: rgba(255, 255, 255, 0.2);
                         padding-top: 20px;
-                            }</style>"""  , unsafe_allow_html=True) 
+                            }</style>"""  , unsafe_allow_html=True)  #car current rentals details containers
                 
     if past_rentals_button:
-            st.markdown("<h1 style='color:white'>PAST RENTALS</h1>", unsafe_allow_html=True)
+            st.markdown("""<div style="background: rgba(255, 152, 0, 0.2); border-radius: 10px; 
+                        padding: 15px; margin: 20px 0; border-left: 4px solid #ff9800; text-align: center;">
+                        <h1 style='color:white; margin:0;'> PAST RENTALS</h1></div>""", unsafe_allow_html=True)
             if len(past_rentals) == 0:
-                st.markdown("<h2 style='color:white'>No past rentals found.</h2>", unsafe_allow_html=True)
+                st.markdown("""<div style="background: rgba(255, 152, 0, 0.1); border-radius: 10px; 
+                            padding: 20px; margin: 20px 0; border: 2px solid #ff9800; text-align: center;">
+                            <h2 style='color:white; margin:0;'> No past rentals found.</h2></div>""", unsafe_allow_html=True)
             else:    
                 for user in past_rentals:
+                    st.markdown('<div class="rental-card">', unsafe_allow_html=True)
                     column1,column2,image=st.columns([2,2,1])
                     with column1:
-                        st.markdown(f"#### Car name:{user["car brand"]}  {user["car name"]}")
-                        st.markdown(f"#### Car no:{user["car no"]}")
-                        st.markdown(f"#### Amount : {user["total_amount"]}")
+                        st.markdown(f"####  Car name: {user['car brand']} {user['car name']}")
+                        st.markdown(f"####  Car no: {user['car no']}")
+                        st.markdown(f"####  Amount: ₹{user['total_amount']:,}")
                     with column2:
-                        st.markdown(f"#### Start Date:{user["rental start"]}")
-                        st.markdown(f"#### End Date:{user["rental end"]}")
-                        st.markdown(f"#### Duration:{user["duration"]} days")
+                        st.markdown(f"####  Start Date: {user['rental start']}")
+                        st.markdown(f"####  End Date: {user['rental end']}")
+                        st.markdown(f"####  Duration: {user['duration']} days")
                     with image:
                         st.markdown(f"""
                                 <div style="width:200px; height:150px;
                                         overflow:hidden; display:inline-block; 
                                         align-items:center; justify-content:center; 
-                                        background:#eee; border-radius:8px; margin-bottom:8px;">
-                                        <img src="{user["car_image"]}" style="width:100%;
-                                        height:100%; object-fit:cover;">
+                                        background:rgba(255,255,255,0.1); border-radius:10px; 
+                                        margin-bottom:8px; border:2px solid rgba(255,255,255,0.2);">
+                                        <img src="{user['car_image']}" style="width:100%;
+                                        height:100%; object-fit:cover; border-radius:8px;">
                                 </div>""", unsafe_allow_html=True)
         
             st.markdown("""<style>
-                    .stHorizontalBlock.st-emotion-cache-ajtf3x.eertqu03 {
+                    .stHorizontalBlock.st-emotion-cache-rra9ig.e1msl4mp2 {
     border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-width: 1px;
+    border-radius: 8px;
     margin-bottom: 20px;
 }
-                    .stColumn.st-emotion-cache-1becg64.eertqu01{
+                    .stColumn.st-emotion-cache-5ux0lt.e1msl4mp1{
                     border-style: solid;
                     border-bottom: none;
                     border-left: none;
                     border-top: none;
-                    padding-top: 20px;   s
+                    border-color: rgba(255, 255, 255, 0.2);
+                    padding-top: 20px;
                     }
-                    </style>""", unsafe_allow_html=True)
+                    </style>""", unsafe_allow_html=True) #car past rentals containers

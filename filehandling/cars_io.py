@@ -1,7 +1,7 @@
 import os
 import json
 
-file="D:\car_rental_system\data\cars.json"
+file="D:/PROJECT/CARVIO_v1/data/cars.json"
 
 
 def load_cars():

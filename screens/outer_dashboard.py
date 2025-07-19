@@ -22,7 +22,7 @@ def main_page_bl():
         </style>
         '''
         st.markdown(page_bg_img, unsafe_allow_html=True)
-    set_background("D:/car_rental_system/static/image/bgimage_final.png")
+    set_background("D:/PROJECT/CARVIO_v1/static/image/bgimage_final.png")
 
     st.markdown("""
                 <h1 style='color:white;'> Welcome to CARVIO </h1>

@@ -1,26 +1,28 @@
 [
     {
+        "rental_id": 1,
         "username": "GEETNATU",
         "car name": "Camry",
         "car brand": "Toyota",
         "car no": "MP01AB1234",
-        "rental start": "2025-07-11",
-        "rental end": "2025-07-12",
-        "duration": 2,
+        "rental start": "2025-07-18",
+        "rental end": "2025-07-18",
+        "duration": 1,
         "returned": true,
-        "total_amount": 5000,
+        "total_amount": 2500,
         "car_image": "https://global.toyota/pages/news/images/2017/07/10/1330/cmrh1707_04_s.jpg"
     },
     {
-        "username": "shivam",
-        "car name": "Thar",
+        "rental_id": 2,
+        "username": "GEETNATU",
+        "car name": "Bolero",
         "car brand": "Mahindra",
-        "car no": "MP06KL1234",
-        "rental start": "2025-07-11",
-        "rental end": "2025-07-11",
+        "car no": "MP36ST1234",
+        "rental start": "2025-07-19",
+        "rental end": "2025-07-19",
         "duration": 1,
         "returned": true,
-        "total_amount": 3200,
-        "car_image": "https://via.placeholder.com/300x200?text=Car5"
+        "total_amount": 2700,
+        "car_image": "https://via.placeholder.com/300x200?text=Car35"
     }
 ]

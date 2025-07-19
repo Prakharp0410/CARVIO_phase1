@@ -28,7 +28,7 @@ remove_header_footer = """
 """
 def billing_page():
     st.markdown(remove_header_footer, unsafe_allow_html=True)
-    billing_page_function()                                #billing page from utils.billing
+    billing_page_function()                               #billing page from utils.billing
 
 
 

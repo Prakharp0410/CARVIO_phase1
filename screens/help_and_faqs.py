@@ -6,8 +6,21 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 button_css="""<style>
-button.st-emotion-cache-1rwb540.e1e4lema2 {
-    background: green;
+button.st-emotion-cache-1rwb540.el4r43z2{
+     background: #2E86AB;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: bold;
+    transition: all 0.1s ease;
+}
+button.st-emotion-cache-1rwb540.el4r43z2:hover {
+    background: #ff9800;
+    color: white;
+    border: 2px solid #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
 }</style>"""
 
 remove_header_footer = """
@@ -30,14 +43,14 @@ remove_header_footer = """
 
 background_css="""
 <style>
-section.stMain.st-emotion-cache-z4kicb.elbt1zu1 {
-    background-image:url(https://mobiag.com/wp-content/uploads/2019/06/car-rental-fleet.jpg);
+section.stMain.st-emotion-cache-4rsbii.e4man111 {
+    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(https://mobiag.com/wp-content/uploads/2019/06/car-rental-fleet.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
 }
-.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.elbt1zu4 {
+.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 {
     color: white;
     max-width: 100%;
 }
@@ -54,7 +67,7 @@ expander_css="""
     opacity: 0.8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-summary.st-emotion-cache-4rp1ik.eah1tn13 {
+summary.st-emotion-cache-4rp1ik.e1q0jfiw3{
     margin-top: 20px;
 }
 </style>"""
@@ -72,22 +85,21 @@ h1{
 
 def help_and_faqs_page():
     st.markdown(remove_header_footer, unsafe_allow_html=True)
-    st.markdown(background_css, unsafe_allow_html=True)
-    st.markdown(expander_css, unsafe_allow_html=True)
-    st.markdown(button_css, unsafe_allow_html=True)
-
+    
     back_dashboard_button=st.button("Back to dashboard")
     if back_dashboard_button:                           #back to dashboard 
        st.session_state.page="home_page"
        st.session_state.current_page="none"
        st.rerun() 
     
+    st.markdown(background_css, unsafe_allow_html=True)
+    st.markdown(expander_css, unsafe_allow_html=True)
+    st.markdown(button_css, unsafe_allow_html=True)
+
+    
     st.markdown(help_title, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True) 
     st.markdown("""
-    
-
-    
     <h2 style='color:white; font-size:40px; text-align:center;'>Frequently Asked Questions</h2>
     <p style='color:white; font-size:20px; text-decoration:underline'>
         Here are some common questions and answers to help you navigate our car rental service.</p>

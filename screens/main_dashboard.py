@@ -30,18 +30,49 @@ remove_header_footer = """
         }
     </style>
 """
+username_css="""<style> 
+             .h2h{
+                color:beige;  
+                }
+               </style>"""
+buttons_css= """<style>
+                    div.stButton > button{
+                    background-color: #2E86AB;
+                    color:white;
+                    top:0px;
+                    width:150px;
+                    border-radius: 8px;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    }
+                    div.stButton > button:hover{
+                    background-color: orange;
+                    color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(46, 134, 171, 0.3);
+                    }
+                    div.stButton > button:active{
+                    transform: translateY(0px);
+                    }
+                    </style>"""  
 
 making_max_width="""
       <style>   
-  .stMainBlockContainer.block-container.st-emotion-cache-1w723zb.elbt1zu4 {
+  .stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 {
     max-width: 100%;
     }
     </style>
     """
+
 def main_page_afterlogin():
     st.markdown(remove_header_footer,unsafe_allow_html=True)   #removes header and footer
+    st.markdown(buttons_css,unsafe_allow_html=True)         #css for buttons
     st.markdown(making_max_width,unsafe_allow_html=True)       #sets max width of the page
-    
+    st.markdown(username_css,unsafe_allow_html=True)         #css for username
     
     if st.session_state.current_page == "rent_car":           
         rent_car_page()                             #rent your car page 
@@ -91,8 +122,6 @@ def main_page_afterlogin():
                  help_page_ss()
                  st.rerun()
 
-
-        
         def get_base64_of_bin_file(bin_file):
                 with open(bin_file, 'rb') as f:
                     data = f.read()
@@ -112,38 +141,8 @@ def main_page_afterlogin():
                 </style>
                 '''
                 st.markdown(page_bg_img, unsafe_allow_html=True)
-        set_background("D:/car_rental_system/static/image/bgimage_final.png")
+        set_background("D:/PROJECT/CARVIO_v1/static/image/bgimage_final.png")
         
-        car_animation = """
-        <style>
-        .car-container {
-            position: relative;
-            width: 100%;
-            height: 100px;
-            background: transparent;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .car {
-            position: absolute;
-            left: 0;
-            top: 30px;
-            font-size: 48px;
-            transition: left 4s linear;
-            animation: moveCar 10s linear infinite;
-        }
-        @keyframes moveCar {
-            0%   { left: 0; }
-            50% { left: 80%; }
-        }
-        </style>
-        <div class="car-container">
-            <div class="car">🚗</div>
-        </div>
-        """
-       # st.markdown(car_animation, unsafe_allow_html=True)
-    
         username=st.session_state.get("username", "User")
 
         st.markdown(f"""       
@@ -154,29 +153,6 @@ def main_page_afterlogin():
                     <h3 style='color:white'> Your Car, Your Pace, Your Savings</h3>    """,
                     unsafe_allow_html=True)  #The main text on dashboard
     
-        st.markdown( """<style> 
-                       .h2h{
-                        color:beige;  
-                    }
-                    </style>""", unsafe_allow_html=True) #Username CSS
         
-
-        st.markdown("""    
-                    <style>
-                    div.stButton > button{
-                    background-color: green;
-                    color:white;
-                    top:0px;
-                    width:150px;
-                    }
-                    div.stButton > button:hover{
-                    background-color: red ;
-                    color: white;
-                    }
-                    </style>
-                    """, unsafe_allow_html=True)  #main dashboard buttons css
- 
-
- 
 
 
